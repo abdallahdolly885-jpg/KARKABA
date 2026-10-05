@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #070707;
+    color: #f4f1ea;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* BACK BUTTON */
+
+.back-btn {
+    position: fixed;
+    top: 30px;
+    left: 35px;
+
+    color: #f4f1ea;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    z-index: 10;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #ff6f00;
+}
+
+
+/* MAIN */
+
+.linktree {
+    width: 100%;
+    max-width: 620px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding: 100px 25px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* PROFILE */
+
+.profile {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+
+/* E7NA LOGO */
+
+.logo {
+    display: inline-block;
+
+    font-size: 58px;
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    transform: rotate(-7deg);
+
+    color: #f4f1ea;
+
+    line-height: 1;
+}
+
+.brand-name {
+    margin-top: 12px;
+
+    font-size: 11px;
+    letter-spacing: 6px;
+
+    color: #ff6f00;
+}
+
+.bio {
+    margin-top: 18px;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color: rgba(244, 241, 234, 0.55);
+}
+
+
+/* LINKS */
+
+.links {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+/* LINK CARD */
+
+.link-card {
+    position: relative;
+
+    width: 100%;
+    min-height: 68px;
+
+    padding: 0 22px;
+
+    border: 1px solid rgba(244, 241, 234, 0.16);
+
+    background: #0b0b0b;
+
+    color: #f4f1ea;
+
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateX(6px);
+
+    border-color: #ff6f00;
+
+    background: #101010;
+}
+
+
+/* ICON */
+
+.icon {
+    width: 38px;
+    height: 38px;
+
+    margin-right: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(244, 241, 234, 0.2);
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.link-card:hover .icon {
+    border-color: #ff6f00;
+    color: #ff6f00;
+}
+
+
+/* ICON TYPES */
+
+.instagram {
+    font-size: 22px;
+}
+
+.whatsapp {
+    font-size: 18px;
+}
+
+.facebook {
+    font-family: Arial, sans-serif;
+}
+
+.email {
+    font-size: 17px;
+}
+
+.website {
+    font-size: 22px;
+}
+
+
+/* TEXT */
+
+.link-card > span:nth-child(2) {
+    font-size: 13px;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* ARROW */
+
+.arrow {
+    margin-left: auto;
+
+    font-size: 18px;
+
+    color: rgba(244, 241, 234, 0.4);
+
+    transition: 0.3s ease;
+}
+
+.link-card:hover .arrow {
+    color: #ff6f00;
+    transform: translate(3px, -3px);
+}
+
+
+/* FOOTER */
+
+footer {
+    width: 100%;
+
+    margin-top: 55px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(244, 241, 234, 0.1);
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: rgba(244, 241, 234, 0.35);
+}
+
+
+/* ORANGE LINE */
+
+.linktree::before {
+    content: "";
+
+    position: fixed;
+
+    width: 1px;
+    height: 120px;
+
+    background: #ff6f00;
+
+    left: 18px;
+    bottom: 0;
+
+    opacity: 0.5;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .linktree {
+        padding: 90px 18px 30px;
+    }
+
+    .back-btn {
+        top: 22px;
+        left: 20px;
+    }
+
+    .logo {
+        font-size: 48px;
+    }
+
+    .profile {
+        margin-bottom: 35px;
+    }
+
+    .link-card {
+        min-height: 64px;
+    }
+
+    .link-card > span:nth-child(2) {
+        font-size: 12px;
+    }
+
+}

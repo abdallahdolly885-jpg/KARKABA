@@ -1,0 +1,493 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>KARKABA — Admin</title>
+
+  <link
+    rel="stylesheet"
+    href="rutographer.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+
+</head>
+
+
+<body class="admin-body">
+
+<div class="admin-shell">
+
+
+  <!-- =====================================================
+       SIDEBAR
+       ===================================================== -->
+
+  <aside class="admin-side">
+
+    <a
+      class="admin-brand"
+      href="index.html"
+    >
+      <span>E7na</span> KARKABA
+    </a>
+
+
+    <div class="admin-status">
+      <i></i>
+      LOCAL CMS
+    </div>
+
+
+    <nav>
+
+      <button
+        class="tab-btn active"
+        data-tab="dashboard"
+      >
+        DASHBOARD
+      </button>
+
+      <button
+        class="tab-btn"
+        data-tab="settings"
+      >
+        SITE TEXT
+      </button>
+
+      <button
+        class="tab-btn"
+        data-tab="projects"
+      >
+        WORK / PROJECTS
+      </button>
+
+      <button
+        class="tab-btn"
+        data-tab="capture"
+      >
+        CAPTURE
+      </button>
+
+      <button
+        class="tab-btn"
+        data-tab="edit"
+      >
+        EDIT
+      </button>
+
+      <button
+        class="tab-btn"
+        data-tab="color"
+      >
+        COLOR
+      </button>
+
+      <button
+        class="tab-btn"
+        data-tab="story"
+      >
+        STORY / BTS
+      </button>
+
+    </nav>
+
+
+    <div class="admin-side-bottom">
+
+      <a
+        href="index.html"
+        target="_blank"
+      >
+        OPEN WEBSITE ↗
+      </a>
+
+      <button id="resetBtn">
+        RESET DEMO DATA
+      </button>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- =====================================================
+       MAIN
+       ===================================================== -->
+
+  <main class="admin-main">
+
+
+    <!-- ===================================================
+         TOP BAR
+         =================================================== -->
+
+    <header class="admin-top">
+
+      <div>
+
+        <span class="section-label">
+          KARKABA CMS
+        </span>
+
+        <h1 id="tabTitle">
+          DASHBOARD
+        </h1>
+
+      </div>
+
+
+      <div class="top-actions">
+
+        <button id="exportBtn">
+          EXPORT
+        </button>
+
+
+        <label class="import-btn">
+
+          IMPORT
+
+          <input
+            type="file"
+            id="importFile"
+            accept=".json"
+          >
+
+        </label>
+
+
+        <button
+          class="primary"
+          id="saveBtn"
+        >
+          SAVE CHANGES
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- ===================================================
+         DASHBOARD
+         =================================================== -->
+
+    <section
+      class="admin-tab active"
+      id="tab-dashboard"
+    >
+
+      <div class="stat-grid">
+
+        <div class="stat">
+          <span>PROJECTS</span>
+          <strong id="statProjects">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>CAPTURE</span>
+          <strong id="statCapture">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>EDIT</span>
+          <strong id="statEdit">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>COLOR</span>
+          <strong id="statColor">0</strong>
+        </div>
+
+        <div class="stat">
+          <span>BTS</span>
+          <strong id="statStory">0</strong>
+        </div>
+
+      </div>
+
+
+      <div class="admin-card intro-card">
+
+        <span class="section-label">
+          WORKFLOW
+        </span>
+
+        <h2>
+          CONTROL THE WHOLE PORTFOLIO.
+        </h2>
+
+        <p>
+          Add, remove and edit projects.
+          Upload videos directly from your computer.
+          Changes are saved locally in this browser
+          and can be exported as a backup.
+        </p>
+
+
+        <div class="warning">
+
+          This is the LOCAL version of KARKABA CMS.
+          It does not use Supabase or any external database.
+          Media files are stored locally in this browser.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         SETTINGS
+         =================================================== -->
+
+    <section
+      class="admin-tab"
+      id="tab-settings"
+    >
+
+      <div
+        class="form-grid"
+        id="settingsForm"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PROJECTS
+         =================================================== -->
+
+    <section
+      class="admin-tab"
+      id="tab-projects"
+    >
+
+      <div class="list-head">
+
+        <div>
+
+          <span class="section-label">
+            WORK
+          </span>
+
+          <h2>
+            PROJECTS
+          </h2>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-add="projects"
+        >
+          + ADD PROJECT
+        </button>
+
+      </div>
+
+
+      <div id="projectsList"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CAPTURE
+         =================================================== -->
+
+    <section
+      class="admin-tab"
+      id="tab-capture"
+    >
+
+      <div class="list-head">
+
+        <div>
+
+          <span class="section-label">
+            FROM CHAOS TO STORY
+          </span>
+
+          <h2>
+            CAPTURE
+          </h2>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-add="capture"
+        >
+          + ADD ITEM
+        </button>
+
+      </div>
+
+
+      <div id="captureList"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         EDIT
+         =================================================== -->
+
+    <section
+      class="admin-tab"
+      id="tab-edit"
+    >
+
+      <div class="list-head">
+
+        <div>
+
+          <span class="section-label">
+            FROM CHAOS TO STORY
+          </span>
+
+          <h2>
+            EDIT / BEFORE &amp; AFTER
+          </h2>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-add="edit"
+        >
+          + ADD ITEM
+        </button>
+
+      </div>
+
+
+      <div id="editList"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         COLOR
+         =================================================== -->
+
+    <section
+      class="admin-tab"
+      id="tab-color"
+    >
+
+      <div class="list-head">
+
+        <div>
+
+          <span class="section-label">
+            FROM CHAOS TO STORY
+          </span>
+
+          <h2>
+            COLOR / BEFORE &amp; AFTER
+          </h2>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-add="color"
+        >
+          + ADD ITEM
+        </button>
+
+      </div>
+
+
+      <div id="colorList"></div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         STORY / BTS
+         =================================================== -->
+
+    <section
+      class="admin-tab"
+      id="tab-story"
+    >
+
+      <div class="list-head">
+
+        <div>
+
+          <span class="section-label">
+            FROM CHAOS TO STORY
+          </span>
+
+          <h2>
+            BTS / STORY
+          </h2>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-add="story"
+        >
+          + ADD ITEM
+        </button>
+
+      </div>
+
+
+      <div id="storyList"></div>
+
+    </section>
+
+
+  </main>
+
+</div>
+
+
+
+<!-- =======================================================
+     LOCAL VERSION
+     
+     NO SUPABASE
+     NO EXTERNAL JS
+     NO AUTH
+     ======================================================= -->
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
+```
